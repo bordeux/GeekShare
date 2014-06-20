@@ -1,0 +1,20 @@
+<div class="files-list" ng-controller="files.fileListController">
+
+    
+    
+    <div  class="file dir" ng-repeat="file in files"  ng-dblclick="openDir(file)">
+        <div class="name">
+            {{file.name}}
+        </div>
+
+        <div class="size">{{file.size}}</div>
+
+        <div class="operations">
+            <a ui-sref="files.list({ directory: 'test' })" class="theme-button"><i class="fa fa-cloud-download"></i></a>
+            <a href="#" class="theme-button"><i class="fa fa-trash-o"></i></a>
+        </div>
+
+    </div>
+    
+    
+</div>

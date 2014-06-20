@@ -1,0 +1,9 @@
+{
+    "name": "xvweb-js",
+    "description": "XVwebJS Framework",
+    "version": "1.0.0",
+    "main": "xvweb.js",
+    "dependencies": {
+        "express": "visionmedia/express"
+    }
+}

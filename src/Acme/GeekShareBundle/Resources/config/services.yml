@@ -1,0 +1,7 @@
+parameters:
+#    acme_geek_share.example.class: Acme\GeekShareBundle\Example
+
+services:
+#    acme_geek_share.example:
+#        class: %acme_geek_share.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

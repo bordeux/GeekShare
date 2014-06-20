@@ -1,0 +1,5 @@
+_assetic:
+    resource: .
+    type: assetic
+_app:
+    resource: 'C:/Projekty/GeekSharePHP/app/config/routing_dev.yml'

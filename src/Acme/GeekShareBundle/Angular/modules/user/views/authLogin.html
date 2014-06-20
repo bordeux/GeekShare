@@ -1,0 +1,11 @@
+<form class="auth-form" name="form" name="form">
+    <input type="email" class="theme-input-dark" placeholder="your em@il"  value="" />
+    <input type="password" class="theme-input-dark" placeholder="your password"  value="" />
+    <a href="#" class="theme-button"> Sign in </a>
+    <div class="auth-links">
+        <a ui-sref="auth.register">Register</a> 
+        |
+        <a ui-sref="auth.resetPassword" ng-disabled="form.$invalid">Reset password</a>
+    </div>
+
+</form>

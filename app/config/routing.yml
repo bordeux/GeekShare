@@ -1,0 +1,8 @@
+acme_geek_share:
+    resource: "@AcmeGeekShareBundle/Resources/config/routing.yml"
+    prefix:   /
+
+acme_geekshare:
+    resource: "@AcmeGeekShareBundle/Resources/config/routing.yml"
+    prefix:   /
+

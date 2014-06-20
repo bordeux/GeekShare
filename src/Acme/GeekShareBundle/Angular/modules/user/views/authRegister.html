@@ -1,0 +1,24 @@
+<form class="auth-form" name="registerForm" ng-controller="user.authRegisterController" ng-submit="registerUser()">
+    
+    
+    <input type="email" class="theme-input-dark" ng-model="register.email" placeholder="your em@il"  required />
+    
+    
+    <input type="password" class="theme-input-dark" ng-model="register.password" placeholder="your password"  required ng-minlength="5"/>
+    
+    
+    <input type="password" class="theme-input-dark" ng-model="register.repeatPassword"  placeholder="repeat password"  required password-verify="register.password" ng-minlength="5"/>
+    
+    
+    <input type="text" class="theme-input-dark" placeholder="name" ng-model="register.name"  placeholder="your name"  required  ng-minlength="2"/>
+    
+    
+    
+    <button  class="theme-button" ng-disabled="registerForm.$invalid"> Sign up </button>
+    <div class="auth-links">
+        <a ui-sref="auth.login">Login</a> 
+        |
+        <a ui-sref="auth.resetPassword">Reset password</a>
+    </div>
+
+</form>
