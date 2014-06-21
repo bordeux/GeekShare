@@ -10,7 +10,7 @@ app.registerModule(function() {
 
 
     self.initModule = function() {
-        angular.module(self.moduleName, ['ui.router']);
+        angular.module(self.moduleName, ['ui.router', 'ngResource']);
     };
 
     /**
@@ -18,9 +18,9 @@ app.registerModule(function() {
      * @returns {void}
      */
     self.registerRoutes = function() {
-        angular.module(self.moduleName).config(['$stateProvider',
-            function($stateProvider) {
-  
+        angular.module(self.moduleName).config(['$stateProvider', '$urlRouterProvider',
+            function($stateProvider, $urlRouterProvider) {
+                $urlRouterProvider.otherwise('/auth/login');
                 $stateProvider
                         .state('auth', {
                             url: "/auth",
@@ -34,14 +34,31 @@ app.registerModule(function() {
                             url: "/register",
                             templateUrl: app.assets.template(self.moduleName, "authRegister.html")
                         })
+                        .state('auth.logout', {
+                            url: "/logout",
+                            templateUrl: app.assets.template(self.moduleName, "authLogin.html"),    
+                            resolve: {
+                                logout : ["user.$userService", function($userService) {
+                                        return $userService.logout().$promise;
+                                    }]
+                            }
+                        })
                         .state('auth.resetPassword', {
                             url: "/resetPassword",
                             templateUrl: app.assets.template(self.moduleName, "authResetPassword.html")
                         });
-
+             
 
             }]);
 
+    };
+    
+    self.initRun = function() {
+        angular.module(self.moduleName).run(["$rootScope", "$state", function($rootScope, $state) {
+                $rootScope.$on('$stateChangeError', function() {
+                    $state.go("auth.login");
+                });
+            }]);
     };
 
     /**
@@ -55,6 +72,7 @@ app.registerModule(function() {
         bootstrap: function() {
             self.initModule();
             self.registerRoutes();
+            self.initRun();
         }
     };
 });

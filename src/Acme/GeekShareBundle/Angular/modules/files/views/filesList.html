@@ -1,20 +1,19 @@
-<div class="files-list" ng-controller="files.fileListController">
+<div>
+    <div class="files-list">
+        <div  class="file dir" ng-repeat="dir in filesList.directories"  ng-dblclick="openDir(dir)">
+            <div class="name">
+                {{dir.name}}
+            </div>
 
-    
-    
-    <div  class="file dir" ng-repeat="file in files"  ng-dblclick="openDir(file)">
-        <div class="name">
-            {{file.name}}
+            <div class="size">{{dir.files}} files</div>
+
+            <div class="operations">
+                <a ui-sref="files.list({ directory: 'test' })" class="theme-button"><i class="fa fa-cloud-download"></i></a>
+                <a href="#" ng-click="deleteDir(dir)" class="theme-button"><i class="fa fa-trash-o"></i></a>
+            </div>
+
         </div>
-
-        <div class="size">{{file.size}}</div>
-
-        <div class="operations">
-            <a ui-sref="files.list({ directory: 'test' })" class="theme-button"><i class="fa fa-cloud-download"></i></a>
-            <a href="#" class="theme-button"><i class="fa fa-trash-o"></i></a>
-        </div>
-
     </div>
     
-    
+    <a href="#" ng-click="createDir()" class="theme-button"><i class="fa fa-trash-o"></i> New dir </a>
 </div>

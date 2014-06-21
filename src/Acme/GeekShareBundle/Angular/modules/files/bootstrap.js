@@ -23,12 +23,30 @@ app.registerModule(function() {
                 $stateProvider
                         .state('files', {
                             url: "/files",
-                            templateUrl: app.assets.template(self.moduleName, "files.html")
+                            templateUrl: app.assets.template(self.moduleName, "files.html"),
+                            /*controller: ["$state", function($state) {
+                                    if ($state.current.name = "files") {
+                                        //$state.go("files.list", {directory: "root"});
+                                    }
+
+                                }]*/ 
                         })
                         .state('files.list', {
                             url: "/:directory",
-                            templateUrl: app.assets.template(self.moduleName, "filesList.html")
+                            templateUrl: app.assets.template(self.moduleName, "filesList.html"),
+                            controller : "files.fileListController",
+                            resolve: {
+                                user: ["user.$userService", function($userService) {
+                                        return $userService.get().$promise;
+                                    }],
+                                filesList : ["$stateParams", "files.$filesService", function($stateParams, $filesService) {                                       
+                                        return $filesService.list($stateParams).$promise;
+                                    }]
+                            }
                         });
+                        
+                        
+                        
 
 
             }]);

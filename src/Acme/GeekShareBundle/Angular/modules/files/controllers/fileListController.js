@@ -10,18 +10,46 @@ app.registerController(function() {
     
     
     self.initController = function(){
-        angular.module(self.moduleName).controller([self.moduleName, self.controllerName].join("."), ['$scope', '$state',
-          function ($scope, $state) {
-              $scope.files = [
-                  {name: Math.random(), size:"10mb", link : Math.random()},
-                  {name: Math.random(), size:"10mb", link : Math.random()},
-                  {name: Math.random(), size:"10mb", link : Math.random()},
-                  {name: Math.random(), size:"10mb", link : Math.random()},
-      
-              ];
+        angular.module(self.moduleName).controller([self.moduleName, self.controllerName].join("."), ['$scope', '$state', 'filesList', 'files.$filesService', '$stateParams',
+          function ($scope, $state, filesList, $filesService, $stateParams) {
+   
+              $scope.filesList = filesList;
               
-              $scope.openDir = function(file){
-                  $state.go("files.list", {directory: file.link});
+              $scope.openDir = function(dir){
+                  $state.go("files.list", {directory: dir.fullPath});
+              };
+              
+              $scope.createDir = function(){
+                  var dirName = prompt("Enter new dir name");
+                  var re = /^[^/\\→]+$/; 
+                  if(dirName.length < 3 || !re.test(dirName)){
+                      alert("Invalid dir name");
+                      return;
+                  };
+                  $filesService.create({
+                     directory :  filesList.currentPath,
+                     name : dirName
+                  }).$promise.then(function(){
+                      $state.go('files.list', $stateParams, {reload : true });
+                  }, function(){
+                      alert("Unable to add new dir");
+                  });
+                  
+              };
+              
+              $scope.deleteDir = function(dir){
+                  if(!confirm("Do you realy want delete "+dir.name+" dir?")){
+                      return;
+                  }
+                  
+                  $filesService.delete({
+                     directory :  dir.fullPath
+                  }).$promise.then(function(){
+                      $state.go('files.list', $stateParams, {reload : true });
+                  }, function(){
+                      alert("Unable to delete dir");
+                  });
+                  
               };
               
           }]);

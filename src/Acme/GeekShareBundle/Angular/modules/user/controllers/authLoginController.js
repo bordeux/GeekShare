@@ -6,13 +6,21 @@ app.registerController(function() {
     var self = this;
 
     self.moduleName = "user";
-    self.controllerName = "userLoginController";
+    self.controllerName = "authLoginController";
     
     
     self.initController = function(){
-        angular.module(self.moduleName).controller([self.moduleName, self.controllerName].join("."), ['$scope', '$state',
-          function ($scope, $state) {
-             
+        angular.module(self.moduleName).controller([self.moduleName, self.controllerName].join("."), ['$scope', '$state', 'user.$userService',
+          function ($scope, $state, $userService) {
+                $scope.loginUser = function() {
+                    $scope.errorMessage = "";
+                        var result = $userService.login($scope.login).$promise.then(function(user) {
+                        $state.go("files.list", {directory: "root"});
+                    }, function(error) {
+                        $scope.errorMessage = error.data.message;
+                    });
+
+                };
               
           }]);
     };

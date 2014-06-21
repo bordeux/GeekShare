@@ -3,6 +3,7 @@
     
     <input type="email" class="theme-input-dark" ng-model="register.email" placeholder="your em@il"  required />
     
+    <div ng-show="errorMessage" class="theme-error">{{errorMessage}}</div>
     
     <input type="password" class="theme-input-dark" ng-model="register.password" placeholder="your password"  required ng-minlength="5"/>
     

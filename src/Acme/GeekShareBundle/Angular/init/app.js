@@ -51,7 +51,9 @@ app = {
      * @type Array
      */
     appRequires : [
-        "ui.router"
+        "ui.router",
+        "angular-loading-bar",
+        "ngSanitize"
     ],
     
     /**
@@ -336,6 +338,8 @@ app = {
             $locationProvider.html5Mode(true);
         }]);
     },
+    
+
     
     
     /**

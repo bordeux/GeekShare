@@ -1,12 +1,15 @@
 .auth {
     width:100%;
-    height:100%;
+    padding-top:20px;
 }
 
 .auth-logo {
     height: 300px;
     text-align:center;
-    margin-top: 20px;
+    background : url(/bundles/geekshare/img/logo.png) center center no-repeat;
+    background-size:contain;
+    margin:auto;
+    width:90%;
 }
 .auth-logo img {
     height: 100%;

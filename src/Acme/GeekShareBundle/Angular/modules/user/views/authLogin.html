@@ -1,11 +1,20 @@
-<form class="auth-form" name="form" name="form">
-    <input type="email" class="theme-input-dark" placeholder="your em@il"  value="" />
-    <input type="password" class="theme-input-dark" placeholder="your password"  value="" />
-    <a href="#" class="theme-button"> Sign in </a>
+<form class="auth-form" name="loginForm" ng-controller="user.authLoginController" ng-submit="loginUser()">
+    
+    
+    <input type="email" class="theme-input-dark" ng-model="login.email" placeholder="your em@il"  required />
+    
+    <div ng-show="errorMessage" class="theme-error">{{errorMessage}}</div>
+    
+    <input type="password" class="theme-input-dark" ng-model="login.password" placeholder="your password"  required ng-minlength="5"/>
+    
+   
+    
+    <button  class="theme-button" ng-disabled="loginForm.$invalid"> Sign in </button>
     <div class="auth-links">
         <a ui-sref="auth.register">Register</a> 
         |
-        <a ui-sref="auth.resetPassword" ng-disabled="form.$invalid">Reset password</a>
+        <a ui-sref="auth.resetPassword">Reset password</a>
     </div>
 
 </form>
+

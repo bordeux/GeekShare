@@ -41,7 +41,7 @@ h2 span {
     vertical-align: top;
 }
 
-.thene-navigation {
+.theme-navigation {
     width: 200px;
     background:red;
     min-height:150px;
@@ -125,6 +125,8 @@ h2 span {
     display: inline-block;
     text-align:center;
     color : #FFF;
+    padding-left:10px;
+    padding-right:10px;
     
 }
 .theme-button[disabled] {
@@ -139,7 +141,7 @@ h2 span {
     .theme-horizontal, .theme-horizontal > *{
         display: block;
     }
-    .thene-navigation {
+    .theme-navigation {
         width:100%;
     }
     .theme-logo {
@@ -189,3 +191,9 @@ h2 span {
     color: #FFF;
 }
 
+.theme-error {
+    font-weight: bold;
+    padding: 5px;
+    color : red;
+    text-align:center;
+}
