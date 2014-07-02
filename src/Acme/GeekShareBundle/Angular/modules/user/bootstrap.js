@@ -28,7 +28,20 @@ app.registerModule(function() {
                         })
                         .state('auth.login', {
                             url: "/login",
-                            templateUrl: app.assets.template(self.moduleName, "authLogin.html")
+                            templateUrl: app.assets.template(self.moduleName, "authLogin.html"),
+                            controller: "user.authLoginController",
+                            resolve: {
+                                checkLogin: ["$q", "user.$userService", "$state", function($q, $userService, $state) {
+                                        var deferred = $q.defer();
+                                        $userService.get().$promise.then(function() {
+                                            $state.go("files.list", {directory: "root"});
+                                            deferred.reject();
+                                        }, function() {
+                                            deferred.resolve();
+                                        });
+                                        return deferred;
+                                    }]
+                            }
                         })
                         .state('auth.register', {
                             url: "/register",
@@ -36,10 +49,12 @@ app.registerModule(function() {
                         })
                         .state('auth.logout', {
                             url: "/logout",
-                            templateUrl: app.assets.template(self.moduleName, "authLogin.html"),    
+         
                             resolve: {
-                                logout : ["user.$userService", function($userService) {
-                                        return $userService.logout().$promise;
+                                logout: ["user.$userService", "$state", function($userService) {
+                                        var promise = $userService.logout().$promise;
+                                        $state.go("auth.login");
+                                        return promise;
                                     }]
                             }
                         })
@@ -47,12 +62,12 @@ app.registerModule(function() {
                             url: "/resetPassword",
                             templateUrl: app.assets.template(self.moduleName, "authResetPassword.html")
                         });
-             
+
 
             }]);
 
     };
-    
+
     self.initRun = function() {
         angular.module(self.moduleName).run(["$rootScope", "$state", function($rootScope, $state) {
                 $rootScope.$on('$stateChangeError', function() {

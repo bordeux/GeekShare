@@ -10,7 +10,7 @@ app.registerModule(function() {
 
 
     self.initModule = function() {
-        angular.module(self.moduleName, ['ui.router']);
+        angular.module(self.moduleName, ['ui.router', 'angularFileUpload']);
     };
 
     /**

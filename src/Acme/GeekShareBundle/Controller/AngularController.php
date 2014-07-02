@@ -9,6 +9,7 @@ use Symfony\Component\HttpFoundation\Response;
 class AngularController extends Controller {
 
     /**
+     * Index action - view JS File with headers
      * @Route("/app/{version}.js")
      */
     public function indexAction($version) {
@@ -17,6 +18,10 @@ class AngularController extends Controller {
         );
     }
 
+    /**
+     * Getting merqued JS files with modules directives, controlers etc.
+     * @return string
+     */
     public function getJsFile() {
         $angularDir = $this->container->get('kernel')->locateResource('@AcmeGeekShareBundle/Angular');
 
@@ -53,7 +58,10 @@ class AngularController extends Controller {
         return $jsString;
  
     }
-    
+    /**
+     * Get config array
+     * @return array
+     */
     public function getConfigJs(){
         $config['version'] = 1.0;
         $config['urls'] = array(

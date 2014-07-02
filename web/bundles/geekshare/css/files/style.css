@@ -39,3 +39,123 @@
     vertical-align:middle;
 }
 .files-list .file .operations a { } 
+
+
+/*
+* FILE UPLOADER
+*/
+
+.file-uploader {
+    position: fixed;
+    width: 100%;
+    bottom:0;
+    left:0;
+    height:0px;
+    background: #FFF;
+    transition: height 0.3s;
+    overflow:hidden;
+    
+}
+
+.file-uploader.active {
+    height: 100%;
+}
+.file-uploader > div {
+    width:100%;
+    height:100%;
+    overflow: auto;
+    position: relative;
+}
+
+.file-uploader.drag-over > div {
+    overflow:hidden;
+}
+
+.file-uploader.drag-over .upload-area{
+    height: 80%;
+}
+.file-uploader.drag-over .upload-area .drop-here{
+    width: 80%;
+}
+
+.file-uploader .upload-area {
+    height: 40%;
+    transition: all 0.8s ease;
+    margin: auto;
+    padding-top: 30px;
+}
+
+.file-uploader .upload-area .drop-here {
+    width: 60%;
+    margin: auto;
+    height:90%;
+    border: 4px #b2bdcc dashed;
+    border-radius: 5px;
+    background: url(../../img/files/cloud.png) center center no-repeat;
+    text-align:center;
+    padding-top:15px;
+    font-size: 16px;
+    position: relative;
+    transition: all 0.5s ease;
+}
+.file-uploader .upload-area .drop-here input {
+    position:absolute;
+    opacity: 0;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    cursor: pointer;
+}
+.file-uploader.drag-over .drop-here {
+    background-color: rgb(141, 250, 141);
+    
+}
+
+.file-uploader .file-uploading {
+  padding-top: 20px;  
+}
+
+.file-uploader .file-uploading .item {
+    position: relative;
+    margin-bottom: 10px;
+    text-align:center;
+    padding: 10px;
+    transition: all 0.5s ease;
+}
+
+.file-uploader .file-uploading .item.error {
+    background: rgb(255, 136, 136);
+}
+.file-uploader .file-uploading .item.uploading .abort {display: none;}
+
+.file-uploader .file-uploading .item.uploading .abort {
+    position:absolute;
+    display:block;
+    height:100%;
+    right:10px;
+    top: 0;
+    width: 40px;
+    background: url(../../img/files/close.png) center center no-repeat;
+}
+
+.file-uploader .file-uploading .item .progress {
+    position: absolute;
+    top:0;
+    left:0;
+    height: 100%;
+    width: 50px;
+    background: #a5d7a4;
+    text-align:right;
+    z-index: -1;
+}
+
+.file-uploader .close-btn{
+    display: block;
+    position:absolute;
+    right: 10px;
+    top:10px;
+    height:40px;
+    width: 40px;
+    background: url(../../img/files/close.png) center center no-repeat;
+}

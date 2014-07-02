@@ -11,13 +11,19 @@ use Acme\GeekShareBundle\Entity\Directory;
 use Acme\GeekShareBundle\Entity\User;
 
 /**
+ * Class for /api/files routing
  * @Route("/api/files")
  */
 class FilesController extends Controller {
 
+    /**
+     * Directory seprator
+     * @var string 
+     */
     protected $ds = "→";
   
     /**
+     * List directories and files in dir
      * @Route("/list")
      * @Security("has_role('ROLE_USER')")
      */
@@ -55,6 +61,7 @@ class FilesController extends Controller {
     }
     
     /**
+     * Action, when user create new dir
      * @Route("/create")
      * @Security("has_role('ROLE_USER')")
      */
@@ -84,6 +91,18 @@ class FilesController extends Controller {
     }
     
     /**
+     * Action, when user upload file to the server
+     * @Route("/upload")
+     * @Security("has_role('ROLE_USER')")
+     */
+    public function uploadAction(Request $request) {
+        var_dump($_FILES);
+        exit;
+        return '';
+    }
+    
+    /**
+     * Action, when user click on delete folder button
      * @Route("/delete")
      * @Security("has_role('ROLE_USER')")
      */
@@ -105,7 +124,8 @@ class FilesController extends Controller {
         $where = array(
             "path" => implode($this->ds, $dirPaths),
             "name" => $dirName,
-            "usrId"=> $user->getId()
+            "usrId"=> $user->getId(),
+            "deleted" => false
         );
         $directory = $repository->findOneBy($where);
         if(!$directory){

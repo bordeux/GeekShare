@@ -17,6 +17,7 @@ class PagesController extends Controller {
 
 
     /**
+     * Get page content 
      * @Route("/get")
      */
     public function getAction(Request $request) {

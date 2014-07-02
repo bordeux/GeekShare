@@ -1,0 +1,24 @@
+<div class="file-uploader hidden" ng-class="elementClasses" ng-controller="files.fileUploaderController" ng-file-drop="fileSelected($files)" ng-file-drag-over-class="drag-over">
+    <div>
+        <a ng-click="hide()" href="#" class="close-btn"></a>
+        
+        <div class="upload-area">
+            <div class="drop-here">
+                <input type="file" ng-file-select="fileSelected($files)" multiple />
+                Drag & Drop Files Here to Share
+            </div>
+        </div>
+        
+        <div class="file-uploading">
+            <div class="item" ng-repeat="file in filesList" ng-class="file.itemClass">
+                {{file.name}}</br>
+                
+                {{file.message}}
+                
+                <a href="#" ng-click="file.abort()" class="abort" title="Abort"></a>
+                <div class="progress" ng-style="file.progressStyle"></div>
+            </div>
+        </div>
+        
+    </div>
+</div>

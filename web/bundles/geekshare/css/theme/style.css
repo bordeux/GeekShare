@@ -197,3 +197,7 @@ h2 span {
     color : red;
     text-align:center;
 }
+
+.theme-logout a { display:none;}
+.theme-logout:hover a { display: block;}
+.theme-logout a.logout { display: block;}

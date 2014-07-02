@@ -21,6 +21,7 @@ class UserController extends Controller {
     protected $firewallName ="secured_area";
     
     /**
+     * Action, when user register new account
      * @Route("/create")
      * @Method({"PUT"})
      */
@@ -62,6 +63,7 @@ class UserController extends Controller {
     }
 
     /**
+     * Action, when user log in
      * @Route("/login")
      * @Method({"PUT"})
      */
@@ -104,6 +106,7 @@ class UserController extends Controller {
     }
     
     /**
+     * Logout action
      * @Route("/logout")
      */
     public function logoutAction(){

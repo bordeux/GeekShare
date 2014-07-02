@@ -8,6 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class PhpInfoController extends Controller {
 
     /**
+     * Dev file
      * @Route("/phpinfo")
      */
     public function indexAction() {

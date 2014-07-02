@@ -9,6 +9,7 @@ use Symfony\Component\HttpFoundation\Response;
 class TemplateController extends Controller {
 
     /**
+     * In response is view file for angular module
      * @Route("/assets/templates/{module}/{view}.html")
      */
     public function indexAction($module, $view) {

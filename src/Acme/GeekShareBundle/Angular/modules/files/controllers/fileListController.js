@@ -37,6 +37,10 @@ app.registerController(function() {
                   
               };
               
+              $scope.showUploader = function(){
+                  $scope.$emit('files.showUploader');
+              };
+              
               $scope.deleteDir = function(dir){
                   if(!confirm("Do you realy want delete "+dir.name+" dir?")){
                       return;

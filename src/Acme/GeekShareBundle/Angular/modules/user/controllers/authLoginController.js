@@ -10,8 +10,10 @@ app.registerController(function() {
     
     
     self.initController = function(){
-        angular.module(self.moduleName).controller([self.moduleName, self.controllerName].join("."), ['$scope', '$state', 'user.$userService',
+        angular.module(self.moduleName).controller([self.moduleName, self.controllerName].join("."), ['$scope', '$state', 'user.$userService', 
           function ($scope, $state, $userService) {
+             
+              
                 $scope.loginUser = function() {
                     $scope.errorMessage = "";
                         var result = $userService.login($scope.login).$promise.then(function(user) {

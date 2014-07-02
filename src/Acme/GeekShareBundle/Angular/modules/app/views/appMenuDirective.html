@@ -1,9 +1,13 @@
 <nav class="theme-menu theme-m20">
     <a href="" class="show"></a>
-    <a href="#" ui-sref="files.list({directory: 'root'})" ng-class="{active:$state.includes('files')}">My files</a>
+    <a href="#" ui-sref="files.list({directory: 'root'})" ui-sref-active="active">My files</a>
     <a href="#" ui-sref="page({name : 'about'})" ui-sref-active="active">About</a>
     <a href="#" ui-sref="page({name : 'faq'})" ui-sref-active="active">Faq</a>
     <a href="#" ui-sref="page({name : 'terms'})" ui-sref-active="active">Terms</a>
     <a href="#" ui-sref="page({name : 'contact'})" ui-sref-active="active">Contact</a>
-    <a href="#" ui-sref="auth.logout()" ui-sref-active="active">Log out</a>
+    <div class="theme-logout">
+        <a  class="logout">Log out</a>
+        <a href="#" ui-sref="auth.logout()" ui-sref-active="active">Confirm logout</a>
+    </div>
+    
 </nav>
