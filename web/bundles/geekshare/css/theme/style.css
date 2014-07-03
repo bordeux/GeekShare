@@ -14,10 +14,13 @@ h1 {
     
 }
 
-h2 {
+h2, h2 a {
     font-size:30px;
     color: #6dc46b;
     font-weight:normal;
+}
+h2 a:hover {
+    color : #136B11;
 }
 h2 span {
     color: #000;

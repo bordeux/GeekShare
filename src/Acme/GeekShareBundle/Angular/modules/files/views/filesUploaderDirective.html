@@ -10,7 +10,7 @@
         </div>
         
         <div class="file-uploading">
-            <div class="item" ng-repeat="file in filesList" ng-class="file.itemClass">
+            <div class="item" ng-repeat="file in filesList | orderBy:'fileNo':true"" ng-class="file.itemClass">
                 {{file.name}}</br>
                 
                 {{file.message}}

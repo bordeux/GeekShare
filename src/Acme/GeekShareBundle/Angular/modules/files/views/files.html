@@ -15,8 +15,9 @@
 
         <section class="theme-content">
             <h2>
-                My files
-                <span>Total: 52.633gb</span>
+                My files : 
+                /<a href="#" ng-click="openDirectory(item.fullPath)" ng-repeat="item in currentPath">{{item.label}}/</a>
+                <span>Total: {{totalSize() | bytes}}</span>
             </h2>
     
 

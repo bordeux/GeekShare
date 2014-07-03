@@ -10,9 +10,11 @@ app.registerController(function() {
 
 
     self.initController = function() {
-        angular.module(self.moduleName).controller([self.moduleName, self.controllerName].join("."), ['$scope', '$upload', '$stateParams',
-            function($scope, $upload, $stateParams) {
+        angular.module(self.moduleName).controller([self.moduleName, self.controllerName].join("."), ['$scope', '$upload', '$stateParams', '$state',
+            function($scope, $upload, $stateParams, $state) {
 
+                $scope.needReload = false;
+                
                 $scope.show = function() {
                     $scope.elementClasses = "active";
                 };
@@ -23,11 +25,13 @@ app.registerController(function() {
 
 
                 $scope.filesList = [];
+                var filesCount = 0;
+                
                 $scope.fileSelected = function($files) {
                     var directory = $stateParams.directory;
-                    console.log(directory);
                     for (var i = 0; i < $files.length; i++) {
                         var file = $files[i];
+                        file.fileNo = filesCount++;
                         $scope.filesList.push(file);
                         file.finished = false;
                         file.percent = 0;
@@ -49,6 +53,7 @@ app.registerController(function() {
                         }).success(function(data, status, headers, config) {
                             file.itemClass = "finished";
                             file.message = "Uploaded to "+directory+" directory";
+                            $scope.needReload = true;
                         }).error(function(response, errorCode, errorMessage) {
                             file.itemClass = "error";
                             file.message = "Unable to upload this file to server. Please try again"
@@ -65,6 +70,10 @@ app.registerController(function() {
 
 
                 $scope.hide = function() {
+                    if($scope.needReload){
+                        $scope.needReload = false;
+                        $state.go($state.current, $stateParams, {reload: true});
+                    }
                     $scope.elementClasses = "hidden";
                 };
 

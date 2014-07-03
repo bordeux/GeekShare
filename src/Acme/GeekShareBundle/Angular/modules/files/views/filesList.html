@@ -5,7 +5,7 @@
                 {{dir.name}}
             </div>
 
-            <div class="size">{{dir.files}} files</div>
+            <div class="size"></div>
 
             <div class="operations">
                 <a ui-sref="files.list({ directory: 'test' })" class="theme-button"><i class="fa fa-cloud-download"></i></a>
@@ -13,8 +13,25 @@
             </div>
 
         </div>
+
+        <div class="file {file.extenstion}" ng-repeat="file in filesList.files" >
+            <div class="name">
+                {{file.name}}
+            </div>
+
+            <div class="size">{{file.size| bytes}}</div>
+
+            <div class="operations">
+                <a target="_blank" href="{{file.downloadLink}}" class="theme-button"><i class="fa fa-cloud-download"></i></a>
+                <a href="#" ng-click="deleteFile(file)" class="theme-button"><i class="fa fa-trash-o"></i></a>
+                <a href="#" ng-click="shareFile(file)" class="theme-button"><i class="fa  fa-share-alt"></i></a>
+            </div>
+
+        </div>
+
     </div>
-    
-    <a href="#" ng-click="createDir()" class="theme-button"><i class="fa fa-trash-o"></i> New dir </a>
-    <a href="#" ng-click="showUploader()" class="theme-button"><i class="fa fa-trash-o"></i> Add files </a>
+    <div style="margin-top: 15px;">
+        <a href="#" ng-click="createDir()" class="theme-button"><i class="fa fa-trash-o"></i> New dir </a>
+        <a href="#" ng-click="showUploader()" class="theme-button"><i class="fa fa-trash-o"></i> Add files </a>
+    </div>
 </div>

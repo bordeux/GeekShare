@@ -22,11 +22,11 @@ class File
     private $id;
 
     /**
-     * @var integer
+     * @var string
      *
-     * @ORM\Column(name="dir_id", type="integer")
+     * @ORM\Column(name="dir_path", type="string", length=150)
      */
-    private $dirId;
+    private $path;
 
     /**
      * @var integer
@@ -38,14 +38,21 @@ class File
     /**
      * @var string
      *
-     * @ORM\Column(name="file_fileName", type="string", length=150)
+     * @ORM\Column(name="file_file_name", type="string", length=150)
      */
     private $fileName;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="file_uniqid", type="string", length=150)
+     */
+    private $uniqid;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="file_fileSize", type="integer")
+     * @ORM\Column(name="file_file_size", type="integer")
      */
     private $fileSize;
 
@@ -55,6 +62,20 @@ class File
      * @ORM\Column(name="file_md5", type="string", length=32)
      */
     private $md5;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="file_key", type="string", length=32)
+     */
+    private $key;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="file_mime", type="string", length=100)
+     */
+    private $mime;
 
     /**
      * @var boolean
@@ -77,24 +98,24 @@ class File
     /**
      * Set dirId
      *
-     * @param integer $dirId
+     * @param string $path
      * @return File
      */
-    public function setDirId($dirId)
+    public function setPath($path)
     {
-        $this->dirId = $dirId;
+        $this->path = $path;
 
         return $this;
     }
 
     /**
-     * Get dirId
+     * Get path
      *
-     * @return integer 
+     * @return string 
      */
-    public function getDirId()
+    public function getPath()
     {
-        return $this->dirId;
+        return $this->path;
     }
 
     /**
@@ -193,7 +214,7 @@ class File
      * Set deleted
      *
      * @param boolean $deleted
-     * @return Directory
+     * @return File
      */
     public function setDeleted($deleted)
     {
@@ -210,5 +231,73 @@ class File
     public function getDeleted()
     {
         return $this->deleted;
+    }
+    
+    /**
+     * Set public key access to file
+     *
+     * @param string $key
+     * @return File
+     */
+    public function setKey($key)
+    {
+        $this->key = $key;
+
+        return $this;
+    }
+
+    /**
+     * Get public file key
+     *
+     * @return boolean 
+     */
+    public function getKey()
+    {
+        return $this->key;
+    }
+    
+  
+    /**
+     * Set mime type
+     * @param string $mime
+     * @return \Acme\GeekShareBundle\Entity\File
+     */
+    public function setMime($mime)
+    {
+        $this->mime = $mime;
+
+        return $this;
+    }
+
+    /**
+     * Get mime type
+     *
+     * @return string 
+     */
+    public function getMime()
+    {
+        return $this->mime;
+    }
+    
+    /**
+     * 
+     * @param string $filePath
+     * @return boolean;
+     */
+    public function setFile($filePath){
+        $this->uniqid = uniqid();
+        $this->setFileSize(filesize($filePath));
+        $this->setMd5(md5_file($filePath));
+        $this->setKey(md5(uniqid().rand().uniqid().rand()));
+        
+        return move_uploaded_file($filePath, $this->getFile());
+    }
+    
+    /**
+     * Get file path
+     * @return string
+     */
+    public function getFile(){
+        return GS_ROOT_DIR.'/files/'.$this->uniqid;
     }
 }

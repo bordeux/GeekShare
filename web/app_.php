@@ -1,4 +1,5 @@
 <?php
+DEFINE('GS_ROOT_DIR', __DIR__.'/..');
 
 use Symfony\Component\ClassLoader\ApcClassLoader;
 use Symfony\Component\HttpFoundation\Request;

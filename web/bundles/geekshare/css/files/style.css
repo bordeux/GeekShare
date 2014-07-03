@@ -30,11 +30,11 @@
     background-color: #e4e4e4;
 }
 .files-list .file .size {
-    width: 50px;
+    width: 80px;
     vertical-align: middle;
 }
 .files-list .file .operations {
-    width: 100px;
+    width: 120px;
     text-align:right;
     vertical-align:middle;
 }

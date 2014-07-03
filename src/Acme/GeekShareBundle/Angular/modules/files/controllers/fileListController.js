@@ -10,13 +10,35 @@ app.registerController(function() {
     
     
     self.initController = function(){
-        angular.module(self.moduleName).controller([self.moduleName, self.controllerName].join("."), ['$scope', '$state', 'filesList', 'files.$filesService', '$stateParams',
-          function ($scope, $state, filesList, $filesService, $stateParams) {
+        angular.module(self.moduleName).controller([self.moduleName, self.controllerName].join("."), ['$scope', '$state', 'filesList', 'files.$filesService', '$stateParams', '$rootScope',
+          function ($scope, $state, filesList, $filesService, $stateParams, $rootScope) {
    
               $scope.filesList = filesList;
               
+              var pathExploted = filesList.currentPath.split("→");
+              var pathUrl = "";
+              
+              
+              $rootScope.currentPath = [];
+              for(var i in pathExploted){
+                  var name = pathExploted[i];
+                  pathUrl += name;
+                  $rootScope.currentPath.push({
+                      label : name,
+                      fullPath :pathUrl
+                  });
+                  
+                  pathUrl += "→";
+              }
+              
+              $rootScope.openDirectory = function(fullPath){
+                  $state.go("files.list", {directory: fullPath});
+              };
+           
+              
+              
               $scope.openDir = function(dir){
-                  $state.go("files.list", {directory: dir.fullPath});
+                  $rootScope.openDirectory(dir.fullPath);
               };
               
               $scope.createDir = function(){
@@ -37,6 +59,14 @@ app.registerController(function() {
                   
               };
               
+              $rootScope.totalSize = function(){
+                  var size = 0;
+                  for(var i in filesList.files){
+                      size += filesList.files[i].size;
+                  }
+                  return size;
+              };
+              
               $scope.showUploader = function(){
                   $scope.$emit('files.showUploader');
               };
@@ -47,7 +77,7 @@ app.registerController(function() {
                   }
                   
                   $filesService.delete({
-                     directory :  dir.fullPath
+                     dir :  dir.id
                   }).$promise.then(function(){
                       $state.go('files.list', $stateParams, {reload : true });
                   }, function(){
@@ -55,6 +85,26 @@ app.registerController(function() {
                   });
                   
               };
+              
+              $scope.deleteFile = function(file){
+                  if(!confirm("Do you realy want delete "+file.name+" dir?")){
+                      return;
+                  }
+                  
+                  $filesService.delete({
+                     file :  file.id
+                  }).$promise.then(function(){
+                      $state.go('files.list', $stateParams, {reload : true });
+                  }, function(){
+                      alert("Unable to delete file");
+                  });
+                  
+              };
+              
+              $scope.shareFile = function(file){
+                  prompt("Copy this link to share", file.downloadLink);
+              };
+              
               
           }]);
     };
