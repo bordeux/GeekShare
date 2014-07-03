@@ -29,8 +29,8 @@ app.registerController(function() {
                 
                 $scope.fileSelected = function($files) {
                     var directory = $stateParams.directory;
-                    for (var i = 0; i < $files.length; i++) {
-                        var file = $files[i];
+                    angular.forEach($files, function(file){
+                        console.log(file);
                         file.fileNo = filesCount++;
                         $scope.filesList.push(file);
                         file.finished = false;
@@ -64,7 +64,7 @@ app.registerController(function() {
                             file.upload.abort();
                             
                         };
-                    }
+                    });
                     
                 };
 

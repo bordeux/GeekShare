@@ -49,7 +49,6 @@ app.registerModule(function() {
                         })
                         .state('auth.logout', {
                             url: "/logout",
-         
                             resolve: {
                                 logout: ["user.$userService", "$state", function($userService) {
                                         var promise = $userService.logout().$promise;
@@ -63,6 +62,16 @@ app.registerModule(function() {
                             templateUrl: app.assets.template(self.moduleName, "authResetPassword.html")
                         });
 
+                $stateProvider
+                        .state('settings', {
+                            url: "/settings",
+                            resolve: {
+                                user: ["user.$userService", function($userService) {
+                                        return $userService.get().$promise;
+                                    }]},
+                            controller: "user.settingsController",
+                            templateUrl: app.assets.template(self.moduleName, "settings.html")
+                        });
 
             }]);
 
