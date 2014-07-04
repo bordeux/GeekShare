@@ -82,7 +82,7 @@ Serwer:
 * zapisywanie danych do bazy danych
 
 
-
+![Graf](http://bordeux.github.io/GeekShare/docs/graphs/classes.svg)
 
 
 
