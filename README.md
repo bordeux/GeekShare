@@ -5,6 +5,10 @@ GeekShare
 
 Authors: Krzysztof Bednarczyk, Radomir Janerka, Grzegorz Pyka, Rafał Gnutek
 
+Szybkie linki:
+* [Dokumentacja](http://bordeux.github.io/GeekShare/docs/)
+* [Demo](http://geekshare.bordeux.net/)
+
 
 Cel i zakres działania systemu
 ----------
