@@ -1,3 +1,0 @@
-acme_geek_share:
-  resource: "@AcmeGeekShareBundle/Controller"
-  type: annotation
