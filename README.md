@@ -10,6 +10,21 @@ Szybkie linki:
 * [Demo](http://geekshare.bordeux.net/)
 
 
+Sreenshots 
+-------
+
+![](http://i.imgur.com/fJf9tPn.png)
+
+
+![](http://i.imgur.com/Dl4h0t0.png)
+
+![](http://i.imgur.com/qLkwY4X.png)
+
+![](http://i.imgur.com/WyufVtX.png)
+
+![](http://i.imgur.com/MjlrbWp.png)
+
+
 Cel i zakres działania systemu
 ----------
 Celem projektu  jest zbudowanie prostego systemu hostingu plików, opartego na najnowszych technologiach webowych, takich jak
