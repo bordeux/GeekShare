@@ -28,3 +28,96 @@ System jest głównie skierowany dla bardziej zaawansowanych użytkowników inte
 
 Pozwala na prywatne trzymanie swoich danych w "chmurze", przez co pozwala dostęp do swoich plików z każdej części globu, posiadającą internet. W stosunku do innych usług dostępnych w internecie (dropbox, gdrive, mega.co.nz, rapidshre), podgląd do plików ma tylko administrator serwera, który zainstalował system.
 
+Aktorzy systemu biznesowego
+---------------------------
+System można podzielić na dwie odrębne aplikacje:
+* Frontend (klient)
+* Backend (server)
+
+W aplikacji backendowej głównym celem jest przechowywanie danych. Pozwala na przetrzymywanie plików na serwerze, autoryzowany dostęp do nich, poprzez swój login i hasło , a takze zewnętrzny dostęp do pliku, poprzez klucz Token.
+
+Natomiast w aplikacji frotnedowej głównym celem jest odpowiednia prezentacja tych danych u klienta, jak i tez zbudowanie prostego i odpowiedniego interfejsu dla użytkownika
+
+Lista funkcji realizowanych przez projekt
+----------------------------
+
+Basckend:
+* utrzymanie połączenia z bazą danych
+* autoryzacja użytkowników
+* pobieranie potrzebnych informacji z bazy  danych
+* zapisywanie przesyłanych plików na serwerze
+* kompresja i łaczenie plików frontendowych, by zoptymalizować czas wczytywania strony
+
+Frontend:
+* utrzymanie kontaktu z klientem
+* odpowiednia prezentacja danych
+* dostęp do plików
+* proste nardzędzia do zarzadzania plikami
+* autoryzacja
+
+
+
+
+Opis zdarzeń aplikacji
+-------------------
+Uzytkownik:
+* logowanie
+* rejestracja
+* resetowania hasła
+* przeglądanie stron typu FAQ, Regulamin
+* przeglądanie zawartości folderów
+* tworzenie nowych folderów
+* usuwanie folderów
+* wysyłanie plików
+* usuwanie plików
+* udostępnianie plików
+* zmiana hasła
+* wylogowanie
+
+Serwer:
+* walidacja danych
+* przesyłanie plików
+* odbieranie plików i zapisywanie na dysku
+* rejestracja zdarzeń
+* zapisywanie danych do bazy danych
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
