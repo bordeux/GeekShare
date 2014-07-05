@@ -47,6 +47,19 @@ System jest głównie skierowany dla bardziej zaawansowanych użytkowników inte
 
 Pozwala na prywatne trzymanie swoich danych w "chmurze", przez co pozwala dostęp do swoich plików z każdej części globu, posiadającą internet. W stosunku do innych usług dostępnych w internecie (dropbox, gdrive, mega.co.nz, rapidshre), podgląd do plików ma tylko administrator serwera, który zainstalował system.
 
+
+Dlaczego ten system
+--------------------------
+Sytem jest skierowany dla osób które boją się o swoją prywatność. W stosunku do gotowych usług, takich jak GDrive, Dropbox, pliki są przechowywane na serwerze klienta. On tylko ma dostęp do plików, przez co w pełni ma kontrolę nad prywatnością.
+
+Kolejną zaletą jest nowoczesny design, opierany na dotychczasowych trednach, jakim jest FlatDesign. 
+
+Cały system w porównaniu do innych, oparty jest na braku przeładowywania stron. To umożliwia przesyłanie plików, bez przerywania połączenia.
+
+Limit wielkości plików jest dostosowany do wielkości dysku twardego serwera klienta, w stosunku do innych usług.
+
+I rzecz najważnejsza - system jest w pełni darmowy.
+
 Aktorzy systemu biznesowego
 ---------------------------
 System można podzielić na dwie odrębne aplikacje:
