@@ -168,7 +168,7 @@ Diagramy zdarzeń
 
 Diagram stanów
 ---------------
-![Diagram stanów](http://i.imgur.com/fWZNRQs.png)
+![Diagram stanów](http://i.imgur.com/xESc0eT.png)
 
 
 Testy
