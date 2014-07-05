@@ -107,9 +107,21 @@ Struktura klas
 
 
 
+Struktura wygenerowanej klasy za pomoca Dotcrine
+-------------------
+![Baza](http://i.imgur.com/4L07ZTd.png)
 
 
 
+Instalacja
+-------------------
+
+1. Przerzuć pliki na serwer ftp
+2. Ustaw chmod dla katalogu 0777 rekrusywnie
+3. Ustaw dane do bazy danych w katalogu config/db.config.php
+4. Za pomocą shella wejdz w katalog projektu
+5. Uruchom komendę 
+php app/console doctrine:schema:update --force
 
 
 
