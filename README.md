@@ -138,6 +138,23 @@ Struktura wygenerowanej klasy za pomoca Dotcrine
 
 
 
+Diagramy zdarzeń
+-----------------------
+![Logowanie](http://i.imgur.com/JLodULY.png)
+
+![Rejstracja(http://i.imgur.com/fEcmGbd.png)
+
+![Wysłanie pliku](http://i.imgur.com/r1iBIuM.png
+
+![Usunięcie pliku](http://i.imgur.com/EtRTzTB.png)
+
+![Utworzenie folderu](http://i.imgur.com/rtYpbEg.png)
+
+![Wyświetlenie strony](http://i.imgur.com/FosVw5r.png)
+
+
+
+
 Instalacja
 -------------------
 
