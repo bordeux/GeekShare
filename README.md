@@ -153,7 +153,10 @@ Diagramy zdarzeń
 ![Wyświetlenie strony](http://i.imgur.com/FosVw5r.png)
 
 
+Testy
+--------------------
 
+Testy [znajdują się pod tym linkiem](http://bordeux.github.io/GeekShare/testy/)
 
 Instalacja
 -------------------
