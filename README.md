@@ -142,9 +142,9 @@ Diagramy zdarzeń
 -----------------------
 ![Logowanie](http://i.imgur.com/JLodULY.png)
 
-![Rejstracja(http://i.imgur.com/fEcmGbd.png)
+![Rejstracja](http://i.imgur.com/fEcmGbd.png)
 
-![Wysłanie pliku](http://i.imgur.com/r1iBIuM.png
+![Wysłanie pliku](http://i.imgur.com/r1iBIuM.png)
 
 ![Usunięcie pliku](http://i.imgur.com/EtRTzTB.png)
 
