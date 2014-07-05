@@ -82,6 +82,18 @@ W aplikacji backendowej głównym celem jest przechowywanie danych. Pozwala na p
 
 Natomiast w aplikacji frotnedowej głównym celem jest odpowiednia prezentacja tych danych u klienta, jak i tez zbudowanie prostego i odpowiedniego interfejsu dla użytkownika
 
+
+Wymagania
+------------------------
+* Functional: System skierowany dla firm oraz zwykłych użytkowników, którzy potrzebują trzymać pliki w "chmurze". 
+* Usability: System jest dostępny na każde platformy mobilne, które posiadają przeglądarke oraz dostęp do internetu. Pozwala na dostęp do swoich plików z każdego urządzenia. System jest prosty w obsłudze, prosty i przejrzysty interfejs pozwala na korzystanie przez starsze osoby, o nie profesjonalej obsłudze komputera.
+Idealne rozwiązanie dla firm, które dbają o bezpieczeństwo swoich danych.
+* Reliabity : System jest zależny od wielu innych podprogramów jak MySQL, PHP, Apache. Jeśli te systemy w pełni działają, system jest dostępny w każdej godzinie. 
+* Performance : System używa frameworka Symphony, który w testach wykazuje małe zużycie pamięci. W testach benchamrkowych, wydajności systemu, wykazuje że idealnie nadaje się na portale pod dużym obciązeniem. Jako to że aplikacja jest napisana w większości w JavaScripcie, gdzie przeładowywanie strony jest zlikwidowane na korzyść Ajaxa, podwójnie zwiększa wydajność serwera
+* Secruity : System jest bezpieczny, nie posiada znanych luk w oprogramowaniu. Jest oparty na walidacje danych. Pliki w nim zawarte są szyfrowane szyfrem AES, przez co ewentualny wyciek danych, nie pozwoli teoretycznie na odczyt plików użytkowników. System jest bezpieczniejszy od innych podobnych serwisów, bo pliki są trzymane u samego klienta.
+
+
+
 Lista funkcji realizowanych przez projekt
 ----------------------------
 
