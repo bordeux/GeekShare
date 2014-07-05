@@ -101,6 +101,8 @@ Serwer:
 * zapisywanie danych do bazy danych
 
 
+Struktura klas
+-------------------
 ![Graf](http://bordeux.github.io/GeekShare/docs/graphs/classes.svg)
 
 
