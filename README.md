@@ -165,6 +165,12 @@ Diagramy zdarzeń
 ![Wyświetlenie strony](http://i.imgur.com/FosVw5r.png)
 
 
+
+Diagram stanów
+---------------
+![Diagram stanów](http://i.imgur.com/fWZNRQs.png)
+
+
 Testy
 --------------------
 
