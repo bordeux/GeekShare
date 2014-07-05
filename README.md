@@ -48,6 +48,16 @@ System jest głównie skierowany dla bardziej zaawansowanych użytkowników inte
 Pozwala na prywatne trzymanie swoich danych w "chmurze", przez co pozwala dostęp do swoich plików z każdej części globu, posiadającą internet. W stosunku do innych usług dostępnych w internecie (dropbox, gdrive, mega.co.nz, rapidshre), podgląd do plików ma tylko administrator serwera, który zainstalował system.
 
 
+Podział pracy
+---------------------
+Zespół jest podzielony na 3 sekcje. Frontend, Backend i grafika:
+
+* Grafika: Grzegorz Pyka
+* Backend (PHP, MySQL):Radomir Janerka, Rafał Gnutek
+* Frontend (JavaScript, AngularJS, CSS, HTML): Krzysztof Bednarczyk
+
+Metodyka pracy, którą wybraliśmy to Programowanie Ekstremalne (eXtreme Programming)
+
 Dlaczego ten system
 --------------------------
 Sytem jest skierowany dla osób które boją się o swoją prywatność. W stosunku do gotowych usług, takich jak GDrive, Dropbox, pliki są przechowywane na serwerze klienta. On tylko ma dostęp do plików, przez co w pełni ma kontrolę nad prywatnością.
@@ -59,6 +69,8 @@ Cały system w porównaniu do innych, oparty jest na braku przeładowywania stro
 Limit wielkości plików jest dostosowany do wielkości dysku twardego serwera klienta, w stosunku do innych usług.
 
 I rzecz najważnejsza - system jest w pełni darmowy.
+
+
 
 Aktorzy systemu biznesowego
 ---------------------------
